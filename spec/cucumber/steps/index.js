@@ -4,8 +4,8 @@
   import { When, Then } from 'cucumber';
 
   let request;
-  let result;
-  let error;
+  let result = {};
+  let error = {};
 
   When('the client creates a POST request to /users', function () {
     request = superagent('POST', 'http://localhost:8080/users');
