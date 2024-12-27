@@ -12,7 +12,7 @@
   });
 
   When('attaches a generic empty payload', function () {
-    return undefined;
+    request.send({});
     });
 
     When('sends the request', function (callback) {
@@ -29,7 +29,7 @@
 
     Then('our API should respond with a 400 HTTP status code', function () {
       if (result.statusCode == 200) {
-        // throw new Error();
+         throw new Error();
       }
     });
 
