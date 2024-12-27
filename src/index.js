@@ -4,7 +4,7 @@
 import "@babel/polyfill";
 import http from 'http';
 const requestHandler = function (req, res) {
-  if (req.method === 'POST' && req.url === '/users') {  
+  if (req.method === 'POST' && req.url === 'http://localhost:8080/users') {  
       res.statusCode = 400; 
       res.end();  
          return; 
