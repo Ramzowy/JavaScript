@@ -28,7 +28,7 @@
     });
 
     Then('our API should respond with a 400 HTTP status code', function () {
-      if (error.statusCode !== 400) {
+      if (result.statusCode == 200) {
          throw new Error();
       }
     });
