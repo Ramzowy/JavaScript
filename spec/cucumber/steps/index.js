@@ -12,7 +12,7 @@
   });
 
   When('attaches a generic empty payload', function () {
-    return undefined;
+    request.send({});
     });
 
     When('sends the request', function (callback) {
