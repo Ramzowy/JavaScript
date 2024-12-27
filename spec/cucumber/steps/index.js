@@ -20,8 +20,6 @@
       .then((response) => {
         result = response.res;
         callback();
-        return result;
-     
       })
       .catch((errResponse) => {
         error = errResponse.response;
@@ -29,12 +27,11 @@
       });
     });
 
-   Then('our API should respond with a 400 HTTP status code', function ()
-   {
-    if (error.statusCode !== 400) {
-      throw new Error();
-    }
-  });
+    Then('our API should respond with a 400 HTTP status code', function () {
+      if (result.statusCode !== 400) {
+        throw new Error();
+      }
+    });
 
    Then('the payload of the response should be a JSON object', function
    (callback) {
