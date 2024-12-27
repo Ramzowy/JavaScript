@@ -9,6 +9,7 @@
     "precommit": "yarn run lint",
     "fix": "eslint src --fix",
     "lint": "eslint src",
+    "test:e2e": "cucumber-js spec/cucumber/features --require-module@babel/register --require spec/cucumber/steps",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon -w src --exec yarn run serve"
   },

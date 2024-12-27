@@ -1,0 +1,19 @@
+
+
+
+
+{
+ "presets":[
+  ["@babel/env", {
+  "targets": {
+  "node" : "current"
+}
+}]
+], 
+"env": {  
+ "debug": {   
+ "retainLines": true 
+     } 
+ },
+ "plugins":[]
+}
