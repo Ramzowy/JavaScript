@@ -11,7 +11,7 @@
     request = superagent('POST', 'localhost:8080/users');
   });
 
-  When('sends the request', function (callback) {
+  When('sends the request', function () {
     return undefined;
     });
 
