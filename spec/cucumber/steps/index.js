@@ -8,7 +8,7 @@
   let error;
 
   When('the client creates a POST request to /users', function () {
-    request = superagent('POST', 'localhost:8080/users');
+    request = superagent('POST', 'http://localhost:8080/users');
   });
 
   When('attaches a generic empty payload', function () {
