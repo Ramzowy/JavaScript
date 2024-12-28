@@ -55,3 +55,27 @@
       Then('contains a message property which says "Payload should not beempty"', function () {
         assert.equal(this.responsePayload.message, 'Payload should not be empty');
         });
+
+
+        When('attaches a generic non-JSON payload', function () {
+          this.request.send('<?xml version="1.0" encoding="UTF-8" ?><email>dan@danyll.com</email>');
+          this.request.set('Content-Type', 'text/xml');
+          });
+
+          When('attaches a generic malformed payload', function () {
+            this.request.send('{"email": "dan@danyll.com", name: }');
+            this.request.set('Content-Type', 'application/json');
+          });
+          
+          Then('our API should respond with a 415 HTTP status code', function ()
+          {
+            assert.equal(this.response.statusCode, 415);
+          });
+
+          Then('contains a message property which says \'The "Content-Type" header must always be "application/json"\'', function () {
+            assert.equal(this.responsePayload.message, 'The "Content-Type header must always be "application/json"');
+          });
+
+          Then('contains a message property which says "Payload should be in JSON format"', function () {
+            assert.equal(this.responsePayload.message, 'Payload should be in JSON format');
+          });
