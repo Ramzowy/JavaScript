@@ -2,6 +2,9 @@
   
   import superagent from 'superagent';
   import { When, Then } from 'cucumber';
+  import { AssertionError } from 'assert';
+  import assert from 'assert';
+
 
   let request = {};
   let result = {};
@@ -29,9 +32,7 @@
     });
 
     Then('our API should respond with a 400 HTTP status code', function () {
-      if (this.response.statusCode !== 400) {
-         throw new Error();
-      }
+      assert.equal(this.response.statusCode, 400);
     });
 
     Then('the payload of the response should be a JSON object', function () {
@@ -52,8 +53,5 @@
       });
 
       Then('contains a message property which says "Payload should not beempty"', function () {
-        if (this.responsePayload.message !== 'Payload should not be empty')
-          {
-            throw new Error();
-          }
+        assert.equal(this.responsePayload.message, 'Payload should not be empty');
         });
